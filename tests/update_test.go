@@ -30,6 +30,8 @@ func TestUpdate(t *testing.T) {
 			t.Errorf("%v: user's updated at should be changed, but got %v, was %v", name, n, lastUpdatedAt)
 		}
 		lastUpdatedAt = n
+		// datetime(3) columns: keep the next update in a later millisecond
+		time.Sleep(time.Millisecond)
 	}
 
 	checkOtherData := func(name string) {
@@ -140,6 +142,7 @@ func TestUpdates(t *testing.T) {
 
 	DB.Create(&users)
 	lastUpdatedAt := users[0].UpdatedAt
+	time.Sleep(time.Millisecond)
 
 	// update with map
 	if res := DB.Model(users[0]).Updates(map[string]interface{}{"name": "updates_01_newname", "age": 100}); res.Error != nil || res.RowsAffected != 1 {

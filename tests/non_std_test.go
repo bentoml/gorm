@@ -24,6 +24,7 @@ func TestNonStdPrimaryKeyAndDefaultValues(t *testing.T) {
 	animal := Animal{Name: "Ferdinand"}
 	DB.Save(&animal)
 	updatedAt1 := animal.UpdatedAt
+	time.Sleep(time.Millisecond)
 
 	DB.Save(&animal).Update("name", "Francis")
 	if updatedAt1.Format(time.RFC3339Nano) == animal.UpdatedAt.Format(time.RFC3339Nano) {
