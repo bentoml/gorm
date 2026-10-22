@@ -37,3 +37,5 @@ require (
 replace gorm.io/gorm => ../
 
 replace github.com/jackc/pgx/v5 => github.com/jackc/pgx/v5 v5.4.3
+
+godebug x509negativeserial=1

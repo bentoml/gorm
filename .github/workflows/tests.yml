@@ -41,7 +41,7 @@ jobs:
   mysql:
     strategy:
       matrix:
-        dbversion: ['mysql:latest', 'mysql:5.7']
+        dbversion: ['mysql:8.0', 'mysql:5.7']
         go: ['1.26.10']
         platform: [ubuntu-latest]
     runs-on: ${{ matrix.platform }}
