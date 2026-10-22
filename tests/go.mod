@@ -1,6 +1,6 @@
 module gorm.io/gorm/tests
 
-go 1.18
+go 1.26.10
 
 require (
 	github.com/google/uuid v1.6.0
@@ -37,3 +37,5 @@ require (
 replace gorm.io/gorm => ../
 
 replace github.com/jackc/pgx/v5 => github.com/jackc/pgx/v5 v5.4.3
+
+godebug x509negativeserial=1
