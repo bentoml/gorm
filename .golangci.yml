@@ -1,20 +1,38 @@
+version: "2"
 linters:
   enable:
     - cyclop
-    - exportloopref
     - gocritic
     - gosec
-    - ineffassign
     - misspell
     - prealloc
     - unconvert
     - unparam
-    - goimports
     - whitespace
-
-linters-settings:
-  whitespace:
-    multi-func: true
-  goimports:
-    local-prefixes: gorm.io/gorm
-
+  settings:
+    whitespace:
+      multi-func: true
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - gorm.io/gorm
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
